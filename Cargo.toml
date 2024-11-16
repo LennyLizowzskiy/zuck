@@ -1,0 +1,13 @@
+[package]
+name = "zuck"
+description = "Human-readable time parser and formatter"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.82"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["time", "duration", "parser"]
+homepage = "https://github.com/LennyLizowzskiy/zuck"
+repository = "https://github.com/LennyLizowzskiy/zuck"
+documentation = "https://docs.rs/zuck"
+categories = ["date-and-time"]
