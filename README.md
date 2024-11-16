@@ -44,7 +44,7 @@ assert_eq!(
         seconds: 7,
         minutes: 6,
         hours: 5,
-        days: 18,
+        days: 25,
         months: 2,
         years: 1
     }
