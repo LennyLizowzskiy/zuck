@@ -328,11 +328,6 @@ mod test {
     }
 
     #[test]
-    fn from_nanoseconds() {
-        // todo
-    }
-
-    #[test]
     fn from_seconds() {
         let result = Duration::from_seconds(2000000);
         let expected = Duration {
@@ -371,12 +366,22 @@ mod test {
     }
 
     #[test]
-    fn from_rust_duration() {
-        use core::time::Duration as RDuration;
+    fn ff() {
+        let duration = Duration::from_str("1y2mo3w4d5h6m7s8ms9microsec10ns").unwrap();
 
-        let rdur = RDuration::from_secs(6000);
-        let result = Duration::try_from(rdur).unwrap();
-
-        // todo
+        assert_eq!(
+            duration,
+            Duration {
+                nanoseconds: 10,
+                microseconds: 9,
+                milliseconds: 8,
+                seconds: 7,
+                minutes: 6,
+                hours: 5,
+                days: 25,
+                months: 2,
+                years: 1
+            }
+        );
     }
 }
