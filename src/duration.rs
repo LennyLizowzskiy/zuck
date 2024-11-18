@@ -1,4 +1,4 @@
-use core::time::Duration as RDuration;
+use core::time::Duration as RsDuration;
 
 use crate::{
     formatter::FormatterOptions,
@@ -214,29 +214,18 @@ impl core::fmt::Display for Duration {
 }
 
 impl Duration {
-    pub fn from_rs_duration_as_secs(value: RDuration) -> Result<Self, core::num::TryFromIntError> {
-        Ok(Duration::from_seconds(value.as_secs()))
+    pub fn from_rs_duration_as_secs(value: RsDuration) -> Self {
+        Duration::from_seconds(value.as_secs())
     }
 
-    pub fn from_rs_duration_as_nanos(value: RDuration) -> Result<Self, core::num::TryFromIntError> {
-        Ok(Duration::from_nanoseconds(value.as_nanos()))
-    }
-}
-
-impl core::convert::TryFrom<RDuration> for Duration {
-    type Error = core::num::TryFromIntError;
-
-    fn try_from(value: RDuration) -> Result<Self, Self::Error> {
-        Ok(Duration::from_rs_duration_as_nanos(value)?)
+    pub fn from_rs_duration_as_nanos(value: RsDuration) -> Self {
+        Duration::from_nanoseconds(value.as_nanos())
     }
 }
 
-impl TryInto<RDuration> for Duration {
-    type Error = error::Error;
-
-    fn try_into(self) -> Result<RDuration, Self::Error> {
-        let rdur = self.into_nanoseconds()?;
-        Ok(RDuration::from_nanos(rdur as _))
+impl From<RsDuration> for Duration {
+    fn from(value: RsDuration) -> Self {
+        Duration::from_rs_duration_as_nanos(value)
     }
 }
 
