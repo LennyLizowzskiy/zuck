@@ -58,7 +58,6 @@ assert_eq!(
 ```
 \b(\d{1,32} ?((ns)|(nsecs?)|(nanosecs?)|(nanosecs?)|(nanoseconds?)|(μs)|(us)|(usecs?)|(microsecs?)|(microseconds?)|(ms)|(msecs?)|(milliseconds?)|(s)|(secs?)|(second)|(seconds?)|(m)|(mins?)|(minutes?)|(h)|(hrs?)|(hours?)|(d)|(days?)|(w)|(wks?)|(weeks?)|(mo)|(months?)|(y)|(yrs?)|(years?)))( ?(\d{1,32} ?((ns)|(nsecs?)|(nanosecs?)|(nanosecs?)|(nanoseconds?)|(μs)|(us)|(usecs?)|(microsecs?)|(microseconds?)|(ms)|(msecs?)|(milliseconds?)|(s)|(secs?)|(second)|(seconds?)|(m)|(mins?)|(minutes?)|(h)|(hrs?)|(hours?)|(d)|(days?)|(w)|(wks?)|(weeks?)|(mo)|(months?)|(y)|(yrs?)|(years?))))*\b
 ```
-With case-insensitive flag enabled.
 
 Though it doesn't cover the failure in case if repeating of the same time unit occurs.
 
